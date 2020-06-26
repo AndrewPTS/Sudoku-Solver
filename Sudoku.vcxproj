@@ -145,6 +145,12 @@
   <ItemGroup>
     <ClInclude Include="sudoku.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="img\sudoku.jpg" />
+    <Image Include="img\sudoku_4.jpg" />
+    <Image Include="img\sudoku_alt.jpg" />
+    <Image Include="img\sudoku_old.jpg" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

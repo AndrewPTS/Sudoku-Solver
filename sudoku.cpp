@@ -5,6 +5,7 @@
 
 using namespace std;
 
+//find the solution for the supplied game
 int solve(game_wrapper game) {
 
 	for (int i = 0; i < 9; i++) {

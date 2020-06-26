@@ -21,6 +21,7 @@ int main(int argc, char** argv) {
 
 	if (argc != 2) {
 		cout << "Please supply an image as second argument" << endl;
+		cout << "Some useful examples can be found in the img directory" << endl;
 		return -1;
 	}
 
@@ -29,6 +30,7 @@ int main(int argc, char** argv) {
 	solve(extract_board());
 }
 
+//apply filtering to make detection of the game easier
 void preProcess(char* path) {
 
 	srand(time(NULL));
@@ -55,6 +57,7 @@ void preProcess(char* path) {
 
 }
 
+//utility function to get distance between 2 points in 2D space
 int getDistance(Point p1, Point p2) {
 	
 	double x_dist = abs(p1.x - p2.x);
@@ -63,6 +66,7 @@ int getDistance(Point p1, Point p2) {
 	return ceil(sqrt(x_dist * x_dist + y_dist * y_dist));
 }
 
+//finds contours of the image to locate the game
 void findContour() {
 	Mat canny_out;
 	vector<vector<Point>> contours;
@@ -106,6 +110,7 @@ void findContour() {
 
 }
 
+//extracts digits from the image
 game_wrapper extract_board() {
 
 	cv::resize(game_img, game_img, Size(450,450));

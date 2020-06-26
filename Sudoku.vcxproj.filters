@@ -27,4 +27,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="img\sudoku.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="img\sudoku_4.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="img\sudoku_alt.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="img\sudoku_old.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
