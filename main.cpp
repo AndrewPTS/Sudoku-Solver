@@ -41,7 +41,7 @@ void preProcess(char* path) {
 	img_proc.convertTo(img_proc, -1, 3, 0);
 	medianBlur(img_proc, img_proc, 9);
 	adaptiveThreshold(img_proc, img_proc, contour_thresh,
-		ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 5, 2);
+		ADAPTIVE_THRESH_GAUSSIAN_C, THRESH_BINARY, 7, 3);
 	bitwise_not(img_proc, img_proc);
 	uint kernel_data[25] = { 0, 1, 1, 1, 0,
 							 1, 1, 1, 1, 1, 
@@ -99,8 +99,10 @@ void findContour() {
 		getDistance(bot_right, bot_left), getDistance(bot_left, top_left)};
 	int max_side_length = *max_element(side_lengths.begin(), side_lengths.end());
 
-	Point2f src[3] = { top_left, top_right, bot_left };
-	Point2f transf[3] = { Point(0,0), Point(max_side_length-1, 0), Point(0, max_side_length-1) };
+	Point2f src[4] = { top_left, top_right, bot_left, bot_right };
+	Point2f transf[4] = { Point(0,0), Point(max_side_length-1, 0), Point(0, max_side_length-1), 
+		Point(max_side_length - 1, max_side_length - 1) };
+	
 	Mat transf_mat = getPerspectiveTransform(src, transf);
 	warpPerspective(img_proc, game_img, transf_mat, Size(max_side_length, max_side_length), 
 		INTER_LINEAR, BORDER_CONSTANT);
